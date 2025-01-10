@@ -1,6 +1,6 @@
 #include "list.h"
 
-#define N 100
+#define N 10
 
 list_item items[N];
 list l_head;
@@ -19,5 +19,9 @@ int main(){
     for (size_t i = 0; i < N; i++){
         insert_after(&l_head, &items[i]);
     }
+    review_list(&l_head);
+    remove_node(&l_head, l_head.head);
+    review_list(&l_head);
+    remove_node(&l_head, &items[5]);
     review_list(&l_head);
 }
