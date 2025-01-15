@@ -37,3 +37,9 @@ void insert_after (list *l, list_item *item){
     list_item **pp = find_last(l);
     (*pp) = item;
 }
+
+void insert_before (list *l, list_item *before, list_item *item){
+    list_item **pp = find_indirect(l, before);
+    (*pp) = item;
+    item->next = before;
+}

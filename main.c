@@ -24,4 +24,6 @@ int main(){
     review_list(&l_head);
     remove_node(&l_head, &items[5]);
     review_list(&l_head);
+    insert_before(&l_head, &items[7], &items[5]);
+    review_list(&l_head);
 }
