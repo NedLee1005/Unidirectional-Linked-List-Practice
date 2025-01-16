@@ -1,16 +1,22 @@
 CC := gcc
-CFLAGS := -Wall -g -Og
+CFLAGS :=-Wno-all -g -Og -MMD
+
+SRCS = $(wildcard *.c)
+OBJS = $(SRCS:.c=.o)
+DEPS = $(SRCS:.c=.d)
+
+-include $(DEPS)
 
 all: list.o
 
 test: test_list
 	./test_list
 
-list.o: list.c list.h
+%.o : %.c 
 	$(CC) $(CFLAGS) -c $< -o $@
 
-test_list: main.c list.c list.h
+test_list: $(OBJS) 
 	$(CC) $(CFLAGS) $^ -o $@
 
 clean:
-	$(RM) test_list list.o
+	$(RM) test_list *.o *.d
