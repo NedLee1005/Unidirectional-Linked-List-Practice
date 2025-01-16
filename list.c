@@ -43,3 +43,12 @@ void insert_before (list *l, list_item *before, list_item *item){
     (*pp) = item;
     item->next = before;
 }
+
+void remove_middle (list *l){
+    list_item **fast = &(l->head);
+    list_item **slow = fast;
+    for (;*fast && (*fast)->next; fast = &(*fast)->next->next){
+        slow = &(*slow)->next;
+    }
+    *slow = (*slow)->next; 
+}

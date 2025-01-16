@@ -14,6 +14,7 @@ struct list{
 typedef struct list list;
 
 size_t size (list *l);
+void remove_middle (list *l);
 void review_list (list *l);
 void insert_before (list *l, list_item *before, list_item *item);
 void insert_after (list *l, list_item *item);
