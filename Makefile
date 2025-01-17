@@ -1,5 +1,5 @@
 CC := gcc
-CFLAGS :=-Wno-all -g -Og -MMD
+CFLAGS :=-Wno-all -g -O0 -MMD
 
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
@@ -7,7 +7,7 @@ DEPS = $(SRCS:.c=.d)
 
 -include $(DEPS)
 
-all: list.o
+all: $(filter-out main.o, $(OBJS))
 
 test: test_list
 	./test_list
