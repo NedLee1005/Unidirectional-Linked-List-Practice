@@ -9,14 +9,12 @@ DEPS = $(SRCS:.c=.d)
 
 all: $(filter-out main.o, $(OBJS))
 
-test: test_list
-	./test_list
-
 %.o : %.c 
 	$(CC) $(CFLAGS) -c $< -o $@
 
-test_list: $(OBJS) 
-	$(CC) $(CFLAGS) $^ -o $@
+test: $(OBJS) 
+	$(CC) $(CFLAGS) $^ -o ts
+	./ts	
 
 clean:
-	$(RM) test_list *.o *.d
+	$(RM) test *.o *.d

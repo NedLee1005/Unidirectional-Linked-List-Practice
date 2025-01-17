@@ -16,10 +16,10 @@ void init_list_node (void){
 
 int main(){
     init_list_node();
-    for (size_t i = 0; i < N / 2; i++){
+    for (size_t i = 0; i < N; i+=2){
         insert_after(&l_head1, &items[i]);
     }
-    for (size_t i = N / 2; i < N; i++){
+    for (size_t i = 1; i < N; i+=2){
         insert_after(&l_head2, &items[i]);
     }
 

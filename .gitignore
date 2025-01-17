@@ -3,6 +3,7 @@
 /shader_code
 *.swp
 test_list
+ts
 
 # Prerequisites
 *.d
