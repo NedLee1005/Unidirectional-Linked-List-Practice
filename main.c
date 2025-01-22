@@ -45,6 +45,8 @@ int main(){
 
     review_list(&l_head1);
     review_list(&l_head2);
-    list *new_head = mergeTwoLists(l_head1.head, l_head2.head);
-    review_list(new_head);
+    list new_head = {
+        .head = mergeTwoLists(l_head1.head, l_head2.head)
+    };
+    review_list(&new_head);
 }
